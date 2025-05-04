@@ -1,7 +1,5 @@
 package sender;
 
-import mocks.GeoServiceMock;
-import mocks.LocalizationServiceMock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -20,7 +18,7 @@ public class MessageSenderTest {
     @Test
     public void test_send_1() {
 
-        LocalizationService localizationServiceMock  = Mockito.mock(LocalizationServiceImpl.class);
+        LocalizationService localizationServiceMock = Mockito.mock(LocalizationServiceImpl.class);
         GeoService geoServiceMock = Mockito.mock(GeoServiceImpl.class);
         Mockito.when(localizationServiceMock.locale(Country.RUSSIA)).thenReturn("Добро пожаловать");
         Mockito.when(localizationServiceMock.locale(Country.USA)).thenReturn("Welcome");
@@ -33,6 +31,6 @@ public class MessageSenderTest {
         String expected = "Добро пожаловать";
         Assertions.assertEquals(expected, result);
     }
-    
+
 
 }
